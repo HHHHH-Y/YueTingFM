@@ -113,4 +113,5 @@ function stopRecording() {
 // startButton.addEventListener("click", startRecording);  <-- 和下面的写法, 目前可以认为是一样的效果
 startButton.onclick = startCapture;// 进行事件绑定, 发生了 startButton 的点击(click)事件后, 请执行 startRecording 方法
 
+
 stopButton.onclick = stopRecording;// 在 stopButton 发生了(on)点击(click)事件后, 执行 stopRecoding
