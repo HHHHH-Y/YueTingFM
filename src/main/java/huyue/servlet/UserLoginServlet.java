@@ -22,7 +22,7 @@ import java.sql.SQLException;
 public class UserLoginServlet extends HttpServlet {
     private UserService userService;
 
-    public void init() {
+    public void init() throws ServletException{
         userService = new UserService();
     }
 

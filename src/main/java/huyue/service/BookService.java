@@ -3,6 +3,8 @@ package huyue.service;
 import huyue.dao.BookDao;
 import huyue.dao.SectionDao;
 import huyue.model.Book;
+import huyue.model.Section;
+import huyue.model.User;
 
 
 import java.sql.SQLException;
@@ -23,10 +25,22 @@ public class BookService {
         sectionDao = new SectionDao();
     }
     public List<Book> list() throws SQLException {
-        List<Book> books = bookDao.selectAll();
-        System.out.println(books);
-        return books;
-//        return bookDao.selectAll();
+        return bookDao.selectAll();
     }
 
+    public Book post(String title, User user) throws SQLException {
+        return bookDao.insert(user, title);
+    }
+
+    public Book get(int bid) throws SQLException{
+        // 拿到书籍的基本信息
+        Book book =  bookDao.selectByBid(bid);
+        if(book == null) {
+            return null;
+        }
+        // 拿到书籍的章节信息
+        book.sections = sectionDao.selectByBid(bid);
+
+        return book;
+    }
 }

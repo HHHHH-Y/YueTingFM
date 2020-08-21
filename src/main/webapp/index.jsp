@@ -7,6 +7,10 @@
   Time: 21:55
   To change this template use File | Settings | File Templates.
 --%>
+
+
+<%-- 首页中进行书籍展示 --%>
+<%-- 将查找的书籍信息返回到界面上 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%!
     // 这里定义属性方法
@@ -32,7 +36,7 @@
         <ol>
             <li><a href="/register">注册</a></li>
             <li><a href="/login.html">登录</a></li>
-            <li><a href="/add-book.html">上传书籍</a></li>
+            <li><a href="/add-book.jsp">上传书籍</a></li>
         </ol>
     </nav>
 </header>
@@ -47,7 +51,7 @@
     <ol>
         <% for (Book book:books) { %>
         <li>
-            <a href="/book.html?bid=<%= book.bid %>"><%= book.title %></a>
+            <a href="/book.jsp?bid=<%= book.bid %>"><%= book.title %></a>
             <span>上传者: <%= book.user.username %></span>
         </li>
         <% } %>

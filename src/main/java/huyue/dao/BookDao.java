@@ -4,10 +4,7 @@ import huyue.model.Book;
 import huyue.model.User;
 import huyue.util.DB;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,8 +15,25 @@ import java.util.List;
  * Date: 2020-08-21
  */
 public class BookDao {
-    public Book insert(User user, String title) {
-        return null;
+    // 插入一本书
+    public Book insert(User user, String title) throws SQLException {
+        String sql = "insert into books (uid, title) values (?,?)";
+
+        try(Connection c = DB.getConnection()) {
+            try(PreparedStatement s = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                s.setInt(1, user.uid);
+                s.setString(2, title);
+
+                s.executeUpdate();
+
+                try(ResultSet r = s.getGeneratedKeys()) {
+                    if(!r.next()) {
+                        return null;
+                    }
+                    return new Book(r.getInt(1), user, title);
+                }
+            }
+        }
     }
 
     public List<Book> selectAll() throws SQLException {
@@ -40,5 +54,25 @@ public class BookDao {
             }
         }
         return books;
+    }
+
+    public Book selectByBid(int bid) throws SQLException {
+        String sql = "select bid, title, users.uid, users.username " +
+                "from books, users " +
+                "where books.uid = users.uid and bid = ?";
+        try(Connection c = DB.getConnection()) {
+            try(PreparedStatement s = c.prepareStatement(sql)) {
+                s.setInt(1, bid);
+
+                try(ResultSet r = s.executeQuery()) {
+                    if(!r.next()) {
+                        return null;
+                    }
+
+                    User user = new User(r.getInt("uid"), r.getString("username"));
+                    return new Book(r.getInt("bid"), user, r.getString("title"));
+                }
+            }
+        }
     }
 }
