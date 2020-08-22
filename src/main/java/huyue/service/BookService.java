@@ -43,4 +43,8 @@ public class BookService {
 
         return book;
     }
+
+    public void addSection(int bid, String name) throws SQLException {
+        sectionDao.insert(bid, name);
+    }
 }
