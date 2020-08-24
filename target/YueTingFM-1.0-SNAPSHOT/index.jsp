@@ -34,7 +34,7 @@
 <header>
     <nav>
         <ol>
-            <li><a href="/register">注册</a></li>
+            <li><a href="/register.html">注册</a></li>
             <li><a href="/login.html">登录</a></li>
             <li><a href="/add-book.jsp">上传书籍</a></li>
         </ol>

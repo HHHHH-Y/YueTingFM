@@ -40,7 +40,6 @@ public class BookService {
         }
         // 拿到书籍的章节信息
         book.sections = sectionDao.selectByBid(bid);
-
         return book;
     }
 

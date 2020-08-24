@@ -23,7 +23,7 @@ import java.sql.SQLException;
 public class UserRegisterServlet extends HttpServlet {
     private UserService userService;
 
-    public void init() {
+    public void init() throws ServletException{
         // Servlet 生命周期的内容
         userService = new UserService();
     }
