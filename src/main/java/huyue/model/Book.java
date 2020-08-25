@@ -6,7 +6,7 @@ import java.util.Objects;
 
 /**
  * Created with IntelliJ IDEA.
- * Description:
+ * Description: 图书对应的java对象
  * User: HHH.Y
  * Date: 2020-08-21
  */

@@ -4,7 +4,7 @@ import java.util.Objects;
 
 /**
  * Created with IntelliJ IDEA.
- * Description:
+ * Description: 章节对应 java 对象
  * User: HHH.Y
  * Date: 2020-08-21
  */
