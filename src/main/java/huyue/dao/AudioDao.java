@@ -2,7 +2,7 @@ package huyue.dao;
 
 /**
  * Created with IntelliJ IDEA.
- * Description:
+ * Description:音频数据库
  * User: HHH.Y
  * Date: 2020-08-22
  */

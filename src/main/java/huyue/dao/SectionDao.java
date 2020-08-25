@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
- * Description:
+ * Description: 章节数据库
  * User: HHH.Y
  * Date: 2020-08-21
  */
