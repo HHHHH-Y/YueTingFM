@@ -79,7 +79,7 @@ submitButton.addEventListener("click", function () {
     }
 
     let xhr = new XMLHttpRequest();
-    xhr.open("post", "/upload/audio");
+    xhr.open("post", "/upload/audio?sid=" + sid);
     xhr.onload = function () {
         log("服务器应答事件 -> 打印应答信息");
         log(xhr.status);

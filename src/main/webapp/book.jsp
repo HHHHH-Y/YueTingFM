@@ -67,7 +67,7 @@
     <% if (section.uuid != null) {%>
     <li>
         <%=section.name %>
-        <a>播放</a>
+        <audio controls src="/audio/get?uuid=<%= section.uuid%>"></audio>
     </li>
     <% } else if (user != null && book.user.equals(user)) {%>   <%-- 判断用户是否是这本书的上传者 --%>
     <li>

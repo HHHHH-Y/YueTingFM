@@ -7,11 +7,12 @@
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <meta charset="utf-8">
     <title>悦听FM | 录制音频</title>
-    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="/css/record.css">
 </head>
 <body>
     <div>
@@ -27,6 +28,9 @@
         <pre id="log"></pre>
     </div>
 
+    <script charset="utf-8">
+        let sid = <%= request.getParameter("sid")%>
+    </script>
     <script charset="utf-8" src="/js/record.js"></script>
 </body>
 </html>
